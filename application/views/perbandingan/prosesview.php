@@ -1,4 +1,5 @@
 <script type="text/javascript">
+<<<<<<< HEAD
 <?php $jumlahK=funkriteria();
 	  $jumlahA=funalternatif();
 	  $funIdalternatif = funIdalternatif();
@@ -26,6 +27,32 @@ window.onload =
 	}
 		
 		// }
+=======
+	function proseshitung() {
+		$.ajax({
+			type: 'get',
+			dataType: 'json',
+			url: "<?=base_url('Proses/proseshitung');?>",
+			error: function () {
+				$("#respon").html('Proses seleksi event organizer gagal');
+				$("#error").show();
+			},
+			beforeSend: function () {
+				$("#error").hide();
+				$("#respon").html("Sedang bekerja, tunggu sebentar");
+			},
+			success: function (x) {
+				if (x.status == "ok") {
+					alert('Proses seleksi berhasil. Halaman akan direfresh');
+					window.location = window.location;
+				} else {
+					$("#respon").html('Proses seleksi gagal');
+					$("#error").show();
+				}
+			},
+		});
+	}
+>>>>>>> 9c56200ba947d4b9c6257837051e961127858712
 </script>
 
 <?php if ($this->session->flashdata('info')) { 
@@ -43,6 +70,7 @@ if ($c < 1) {
 	echo '<div class="alert alert-warning hidden-print" id="error">Seleksi belum diproses. Klik <a href="javascript:;" onclick="proseshitung();">di sini</a> untuk proses</div>';
 } else {
 	?>
+<<<<<<< HEAD
 	<br><br>
 	<div class="table-responsive">
 		<h3>Perangkingan </h3><br>
@@ -76,6 +104,13 @@ if ($c < 1) {
 		</table>
 		<?=form_open('Proses/simpanRangking');?>
 		<table class="table table-bordered " >
+=======
+
+	<br><br>
+	<div class="table-responsive">
+		<h3>Perangkingan</h3><br>
+		<table class="table table-bordered ">
+>>>>>>> 9c56200ba947d4b9c6257837051e961127858712
 			<thead>
 			<th>Kriteria / <br>Alternatif</th>
 			<?php
@@ -86,20 +121,31 @@ if ($c < 1) {
 				}
 			}
 			?>
+<<<<<<< HEAD
 			<th>Hasil X<br>Rata" Kriteria</th>
 			<!-- <th>Rangking</th> -->
+=======
+			<th>X Rata-Rata <br> Kriteria</th>
+			<th>Hasil</th>
+			<th>Rangking</th>
+>>>>>>> 9c56200ba947d4b9c6257837051e961127858712
 			</thead>
 			<?php
 			$dAlternatif = $this->m_db->get_data('alternatif');
 			if (!empty($dAlternatif)) {
+<<<<<<< HEAD
 				$noRata1=0;
 				foreach ($dAlternatif as $rAlternatif) {
 					$noRata1+=1;
+=======
+				foreach ($dAlternatif as $rAlternatif) {
+>>>>>>> 9c56200ba947d4b9c6257837051e961127858712
 					$alternatifID = $rAlternatif->id_alternatif;
 					$nama_alternatif = field_value('alternatif', 'id_alternatif', $alternatifID, "nama_alternatif");
 					?>
 					<tr>
 						<td><?= $nama_alternatif; ?></td>
+<<<<<<< HEAD
 						
 						<?php
 						$noRata2=0;
@@ -115,6 +161,28 @@ if ($c < 1) {
 						?>
 						<input type="hidden" id='alt<?=$alternatifID?>' name='alt[<?=$alternatifID?>]'>
 						<!-- <td><?= number_format(0); ?></td> -->
+=======
+						<?php
+						$total = 0;
+						$noUtama2 = 0;
+						if (!empty($dKriteria)) {
+							foreach ($dKriteria as $rKriteria) {
+								$kriteriaid = $rKriteria->id_kriteria;
+//								$alternatif = alternatif_nilai($alternatifID, $kriteriaid);
+								// $nilaiID=field_value('alternatif','id_alternatif',$alternatif,'id_nilai');
+								// $nilai=field_value('nilai_kategori','id_nilai',$nilaiID,'nama_nilai');
+								// $prioritas=ambil_nilai($alternatif);
+								// $total+=$prioritas;
+								$noUtama2 += 1;
+								// echo '<td><input type="text" class="form-control" id="matriks/matrikutama.pri-b'.$noUtama2.'" value="0" readonly=""/></td>';
+								echo '<td>' .number_format(floatval(nilai_rata($alternatifID, $kriteriaid)), 2) . '</td>';
+							}
+						}
+						?>
+						<td><?= number_format(0, 2); ?></td>
+						<td><?= number_format(0, 2); ?></td>
+						<td><?= number_format(0); ?></td>
+>>>>>>> 9c56200ba947d4b9c6257837051e961127858712
 						<!-- <td><?= ucwords($rAlternatif->rangking); ?></td> -->
 
 					</tr>
@@ -125,12 +193,20 @@ if ($c < 1) {
 			}
 			?>
 		</table>
+<<<<<<< HEAD
 <input class="btn btn-primary btn-md" type="submit" value='Simpan'>
 
 	</div>
 
+=======
+	</div>
+>>>>>>> 9c56200ba947d4b9c6257837051e961127858712
 	<?php
 }
 echo form_close();
 ?>
+<<<<<<< HEAD
 <!-- <a href="javascript:;" onclick="proseshitung();" class="btn btn-primary btn-md"> Simpan Rangking</a> -->
+=======
+<!-- <a href="javascript:;" onclick="proseshitung();" class="btn btn-primary btn-md"> Hitung</a>-->
+>>>>>>> 9c56200ba947d4b9c6257837051e961127858712

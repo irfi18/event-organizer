@@ -55,6 +55,7 @@ if (!function_exists('alternatif_nilai')) {
 	}
 }
 
+<<<<<<< HEAD
 if (!function_exists('nilai_rata1')) {
 	function nilai_rata1($kriteriaID)
 	{
@@ -68,6 +69,8 @@ if (!function_exists('nilai_rata1')) {
 	}
 }
 
+=======
+>>>>>>> 9c56200ba947d4b9c6257837051e961127858712
 if (!function_exists('nilai_rata')) {
 	function nilai_rata($alternatifID, $kriteriaID)
 	{
@@ -77,6 +80,7 @@ if (!function_exists('nilai_rata')) {
 			'id_alternatif' => $alternatifID,
 			'id_kriteria' => $kriteriaID,
 		);
+<<<<<<< HEAD
 		$item = $CI->m_db->get_row('rata_alternatif', $s, 'nilai');
 		return $item;
 	}
@@ -129,3 +133,9 @@ if (!function_exists('funIdalternatif')) {
 		return $output;
 	}
 }
+=======
+		$item = $CI->m_db->get_row('rata_rata', $s, 'nilai');
+		return $item;
+	}
+}
+>>>>>>> 9c56200ba947d4b9c6257837051e961127858712
