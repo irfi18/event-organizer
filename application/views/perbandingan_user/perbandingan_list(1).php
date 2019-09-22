@@ -6,7 +6,7 @@
 			$.ajax({
 				type      : 'get',
 				dataType  : 'html',
-				url       : "<?=site_url('Perbandingan/gethtml');?>",
+				url       : "<?=site_url('user/Perbandingan/gethtml');?>",
 				data      : $(this).serialize(),
 				beforeSend: function () {
 					$("#matrik").html('Mengambil data matrik. Tunggu sebentar');

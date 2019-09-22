@@ -8,10 +8,11 @@ class Alternatif extends CI_Controller
     public function __construct()
 	{
 		parent::__construct();
-
-		//memperkenalkan ke controller
+		if ($this->session->userdata('role') != 'admin') {
+			redirect('login','refresh');
+			$this->session->set_flashdata('info', 'Anda harus masuk sebagai ADMIN untuk menggunakan menu');
+		}
 		$this->load->model('Alternatif_model');
-		//Do your magic here
 	}
 
 	public function index()
@@ -31,8 +32,6 @@ class Alternatif extends CI_Controller
 
 	public function store()
 	{
-		
-			//simpan data ke table database
 			$data = array(
                 'nama_alternatif' => $this->input->post('nama_alternatif'),
                 'email' => $this->input->post('email'),

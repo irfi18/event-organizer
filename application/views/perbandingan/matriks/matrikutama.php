@@ -341,7 +341,9 @@ echo form_open('#',array('class'=>'form-horizontal','id'=>'formentri'));
 	<div class="pull-left">
 		<!-- <a href="javascript:;" onclick="hitung();" class="btn btn-primary">Hitung</a>  -->
 		<a href="javascript:;" onclick="showmatrix();" class="btn btn-info">Lihat Matriks</a>
+		<?php if ($this->session->userdata('role') == 'admin') { ?>
 		<a href="javascript:;" onclick="showalternatif();" class="btn btn-info">Lihat Matriks Alternatif</a>
+		<?php } ?>
 		<button type="submit" name="submit" class="btn btn-success">Simpan Nilai</button>
 	</div>
 	<?php
@@ -350,7 +352,6 @@ echo form_open('#',array('class'=>'form-horizontal','id'=>'formentri'));
 </div>
 <br><br><br>
 <div id="matrikdiv" class="col-md-12" style="display: none">
-
 	<div class="table-responsive">
 		<table class="table table-bordered">
 			<thead>
@@ -432,9 +433,13 @@ echo form_open('#',array('class'=>'form-horizontal','id'=>'formentri'));
 	</div>
 
 	<div class="table-responsive">
+	<?php
+	echo validation_errors();
+	echo form_open('Perbandingan/updaterata1',array('class'=>'form-horizontal','id'=>'form_rata1'));
+	?>
 		<table class="table table-bordered">
 			<thead>
-				<th colspan="<?=$jumlah+1;?>" class="text-center">Rasio Konsistensi (Pembagian T)</th>
+				<th colspan="<?=$jumlah+1;?>" class="text-center">Rasio Konsistensi (Pembagian T)sdfsd</th>
 			</thead>
 			<thead>
 				<th>Kriteria</th>
@@ -451,7 +456,7 @@ echo form_open('#',array('class'=>'form-horizontal','id'=>'formentri'));
 					echo '<tr>';
 					echo '<td>'.$v4.'</td>';		
 					echo '<td><input type="text" class="form-control" id="jmlrk-b'.$noUtama4.'" value="0" readonly=""/></td>';
-					echo '<td><input type="text" class="form-control" id="priork-b'.$noUtama4.'" value="0" readonly=""/></td>';
+					echo '<td><input type="text" class="form-control" name="id_kriteria['.$k4.']" id="priork-b'.$noUtama4.'" value="0" readonly=""/></td>';
 					echo '<td><input type="text" class="form-control" id="hasilrk-b'.$noUtama4.'" value="0" readonly=""/></td>';
 					echo '</tr>';
 				}
@@ -464,8 +469,15 @@ echo form_open('#',array('class'=>'form-horizontal','id'=>'formentri'));
 						<input type="text" class="form-control" id="totalrk" value="0" readonly="" />
 					</td>
 				</tr>
+				<tr>
+					<td colspan="4" align="center">
+						<!-- <input type="hidden" name="id_kriteria2" value="<?=$id_kriteria?>"> -->
+						<input type='submit' name="rata_kriteria" value="simpan nilai" id="simpan_nilai" class="btn btn-primary">		
+					</td>
+				</tr>
 			</tfoot>
 		</table>
+		<?=form_close();?>
 	</div>
 
 	<div class="table-responsive">

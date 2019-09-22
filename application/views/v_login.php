@@ -99,11 +99,15 @@
                     <input type="password" name="password" class="form-control" placeholder="Masukkan Password Anda">
                     <?php echo form_error('password'); ?>
                 </div>
-
+                <?php if ($this->session->flashdata('info')) { ?> 
+	            <div class="alert alert-danger" role="alert">
+                <?php echo $this->session->flashdata('info');?>
+            	</div>
+                <?php } ?>
                 <button class="btn btn-lg btn-primary btn-block" name="btn-login" id="btn-login" type="submit">
                 Masuk</button>
                 <br>
-                <a href="<?php echo site_url('home'); ?>"> Bukan Admin?</a>
+                <a href="<?php echo site_url('admin'); ?>"> Bukan Admin?</a>
         </div>
     </div>
 </div>

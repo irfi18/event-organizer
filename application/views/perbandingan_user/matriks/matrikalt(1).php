@@ -515,7 +515,7 @@ if(!empty($arr))
 				<tr>
 					<td colspan="4" align="center">
 						<input type="hidden" name="id_kriteria" value="<?=$kriteriaid?>">
-						<input type='submit' name="rata_alternatif" value="simpan nilai" id="simpan_nilai" class="btn btn-primary">		
+						<input type='submit' name="nilai_rata" value="simpan nilai" id="simpan_nilai" class="btn btn-primary">		
 					</td>
 				</tr>
 			</tfoot>

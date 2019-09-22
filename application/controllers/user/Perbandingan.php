@@ -11,8 +11,8 @@ class Perbandingan extends CI_Controller
 	public function index ()
 	{
 		$data['judul'] = 'Hitung Perbandingan';
-		$data['content'] = 'perbandingan/perbandingan_list';
-		$this->load->view('v_admin',$data);
+		$data['content'] = 'perbandingan_user/perbandingan_list';
+		$this->load->view('v_home',$data);
 	}
 
     function gethtml()
@@ -27,6 +27,8 @@ class Perbandingan extends CI_Controller
 			$output[$rK->id_kriteria]=$rK->nama_kriteria;
 		}}
 		$d['arr']=$output;
+		// $d['id_kriteria']=$idk;
+		// var_dump($d);
     	$this->load->view('perbandingan/matriks/matrikutama', $d);
 	}
 
@@ -88,17 +90,22 @@ class Perbandingan extends CI_Controller
 			$msg="Berhasil update nilai kriteria";
 			$error=FALSE;
 		}
-
+    			
+    	
     	if($error==FALSE)
     	{			
 			echo json_encode(array('status'=>'ok','msg'=>$msg));
 		}else{
 			echo json_encode(array('status'=>'no','msg'=>$msg));
 		}
+		
 	}
 
 	function updaterata1(){
+		// var_dump($_POST);
 		$id_kriteria = $this->input->post('id_kriteria[]');
+		// echo '<pre>';
+		// var_dump($id_kriteria);
 		$data = [];
 		foreach($id_kriteria as $key => $val){
 			$data = [
@@ -107,15 +114,21 @@ class Perbandingan extends CI_Controller
 			];
 			$this->mod_proses->simpanrata1($data);
 			$this->session->set_flashdata('info', 'Nilai rata kriteria berhasil disimpan');
-			return redirect('proses','refresh');
+			return redirect('Perbandingan','refresh');
 		}
 	}
 
 	function updaterata(){
+		// echo '<pre>';
+		// var_dump($_POST);
 		$id_kriteria =$this->input->post('id_kriteria');
 		$id_alternatif = $this->input->post('id_alternatif[]'); 
+		// for($i = 1; $i <= $id_alternatif.length; $i++ ){
+		// 	echo $i
+		// }
 		$data = [];
 		foreach($id_alternatif as $key => $val){
+			// echo $key . ' - '. $val . '<br>';
 			$data = [
 				'id_alternatif' => $key,
 				'id_kriteria' => $id_kriteria,
@@ -123,7 +136,9 @@ class Perbandingan extends CI_Controller
 			];
 			$this->mod_proses->simpanrata($data);
 			$this->session->set_flashdata('info', 'Nilai rata alternatif berhasil disimpan');
-			return redirect('proses','refresh');
+			return redirect('Perbandingan','refresh');
+			// var_dump[$data];
+			// echo $data['nilai'];
 		}
 	}
 

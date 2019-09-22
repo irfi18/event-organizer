@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <head>
 	<meta charset="UTF-8">
-	<title>Help</title>
+	<title>Profil Event Organizer</title>
 	<!-- Bootstrap core CSS-->
 	<link href="<?php echo base_url('assets/bootstrap4/css/bootstrap.min.css') ?>" rel="stylesheet">
 	<link href="<?php echo base_url('assets/bootstrap4/css/bootstrap.css') ?>" rel="stylesheet">
@@ -30,20 +30,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="card-header">
 					<ul class="nav nav-tabs card-header-tabs pull-right" id="myTab" role="tablist">
 						<li class="nav-item">
-							<a class="nav-link active" id="fungsi-tab" data-toggle="tab" href="#fungsi" role="tab"
-								aria-controls="fungsi" aria-selected="true">Fungsi Menu</a>
+							<a class="nav-link active" id="1-tab" data-toggle="tab" href="#1" role="tab"
+								aria-controls="1" aria-selected="true">Baja</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="teori-tab" data-toggle="tab" href="#teori" role="tab"
-								aria-controls="teori" aria-selected="true">Teori AHP</a>
+							<a class="nav-link" id="2-tab" data-toggle="tab" href="#2" role="tab"
+								aria-controls="2" aria-selected="true">Yankees</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="prinsip-tab" data-toggle="tab" href="#prinsip" role="tab"
-								aria-controls="prinsip" aria-selected="false">Prinsip AHP</a>
+							<a class="nav-link" id="3-tab" data-toggle="tab" href="#3" role="tab"
+								aria-controls="3" aria-selected="false">Mata Angin</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="aturan-tab" data-toggle="tab" href="#aturan" role="tab"
-								aria-controls="aturan" aria-selected="false">Aturan Nilai AHP</a>
+							<a class="nav-link" id="4-tab" data-toggle="tab" href="#4" role="tab"
+								aria-controls="4" aria-selected="false">Potensi</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="5-tab" data-toggle="tab" href="#5" role="tab"
+								aria-controls="5" aria-selected="true">Mataram Tenda</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="6-tab" data-toggle="tab" href="#6" role="tab"
+								aria-controls="6" aria-selected="false">Biru Langit</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="7-tab" data-toggle="tab" href="#7" role="tab"
+								aria-controls="7" aria-selected="false">Giga</a>
+						</li><li class="nav-item">
+							<a class="nav-link" id="8-tab" data-toggle="tab" href="#8" role="tab"
+								aria-controls="8" aria-selected="true">Dek</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="9-tab" data-toggle="tab" href="#9" role="tab"
+								aria-controls="9" aria-selected="false">Glow</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="10-tab" data-toggle="tab" href="#10" role="tab"
+								aria-controls="10" aria-selected="false">Titik Terang</a>
 						</li>
 					</ul>
 				</div>
@@ -116,8 +139,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</tbody>
 								<p><b>NOTE : </b>Judul pada kolom tabel sebagai subjek "A" dan 
 								Judul pada Baris tabel Sebagai subjek "B"</p>
-								<p><b>Contoh : </b>Kriteria harga sedikit lebih penting dari kriteria kreatif sehingga
-								user dapat memberikan nilai "3" pada baris harga yang bertemu dengan kolom kreatif. </p>
 							</table>
 						</div>
 					</div>
@@ -125,6 +146,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 	</div>
+
+
 	<script src="<?php echo base_url('assets/jquery/jquery.min.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/bootstrap4/js/bootstrap.min.js') ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('asset/validetta/validetta.js'); ?>"></script>

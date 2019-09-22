@@ -6,7 +6,7 @@
 			$.ajax({
 				type      : 'get',
 				dataType  : 'html',
-				url       : "<?=site_url('Perbandingan/gethtml');?>",
+				url       : "<?=site_url('Perbandingan/gethtmluser');?>",
 				data      : $(this).serialize(),
 				beforeSend: function () {
 					$("#matrik").html('Mengambil data matrik. Tunggu sebentar');
@@ -21,25 +21,6 @@
 			});
 		});
 	});
-
-	function showaltdata(kriteria){
-	$.ajax({
-			type:'get',
-			dataType:'html',
-			url:"<?=site_url('Perbandingan/getalt');?>",
-			data:"kriteria="+kriteria,
-			error:function(jqXHR, textStatus, errorThrown){
-				$("#matrikalt").html('Gagal mengambil data matrik');
-				alert('Error : ' + jqXHR.status);
-			},
-			beforeSend:function(){
-				$("#matrikalt").html('Mengambil data matrik. Tunggu sebentar');
-			},
-			success:function(x){
-				$("#matrikalt").html(x);
-			},
-		});
-}
 </script>
 <br>
 <?php if ($this->session->flashdata('info')) { 

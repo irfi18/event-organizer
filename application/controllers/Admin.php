@@ -6,9 +6,6 @@ class Admin extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		if ($this->session->userdata('role') != 'admin') {
-			redirect('login','refresh');
-		}
 	}
 
 	public function index()
@@ -19,6 +16,3 @@ class Admin extends CI_Controller {
 	}
 
 }
-
-/* End of file Admin.php */
-/* Location: ./application/controllers/Admin.php */

@@ -11,8 +11,8 @@ class Proses extends CI_Controller
 	public function index()
 	{
 		$data['judul'] = 'Perangkingan';
-		$data['content'] = 'perbandingan/prosesview';
-		$this->load->view('v_admin', $data);
+		$data['content'] = 'perbandingan_user/prosesview';
+		$this->load->view('v_home', $data);
 		// $this->funkriteria();
         
 	}
@@ -32,7 +32,7 @@ class Proses extends CI_Controller
 			];
 		$this->mod_proses->simpanRangking($data);
 		$this->session->set_flashdata('info', 'Nilai perangkingan berhasil disimpan');
-		return redirect('Home','refresh');
+		return redirect('Proses','refresh');
 	}
 
 }

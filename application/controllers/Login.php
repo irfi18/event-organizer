@@ -33,14 +33,15 @@ class Login extends CI_Controller {
 			$this->session->set_userdata( $data );
 			redirect('admin','refresh');
 		}else{
-			echo "User tidak ada";
+			$this->session->set_flashdata('info', 'Username atau password salah');
+			redirect('Login','refresh');
 		}
 	}
 
 	public function destroy()
 	{
 		$this->session->sess_destroy();
-		redirect('home','refresh');
+		redirect('login','refresh');
 	}
 
 }

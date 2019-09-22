@@ -11,6 +11,3 @@ class Help extends CI_Controller {
 	}
 
 }
-
-/* End of file Admin.php */
-/* Location: ./application/controllers/Admin.php */

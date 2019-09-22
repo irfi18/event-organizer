@@ -11,6 +11,10 @@ class Alternatif_model extends CI_Model
 		return $this->db->get('alternatif')->result();
 	}
 
+	function rangking(){
+		return $this->db->query("select * from rangking, alternatif where rangking.id_alternatif=alternatif.id_alternatif order by rangking.nilai DESC");
+	}
+
 	//select data berdasarkan primary key dari tabel
 	public function get_id($param)
 	{
